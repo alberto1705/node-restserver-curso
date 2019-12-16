@@ -17,7 +17,7 @@ process.env.URLDB = urlDB;
 
 //Vencimiento del TOKEN
 // 60 seg * 60 min * 24h * 30d
-process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30;
+process.env.CADUCIDAD_TOKEN = '48h';
 
 //SEED - Semilla de autentificación
 process.env.SEED = process.env.SEED || 'este-es-el-seed-desarrollo-alberto';

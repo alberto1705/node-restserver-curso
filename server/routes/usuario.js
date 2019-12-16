@@ -8,10 +8,6 @@ const bcrypt = require('bcrypt');
 const _ = require('underscore');
 
 app.get('/usuario', verificaToken, (req, res) => {
-    return res.json({
-        usuario: req.usuario,
-        nombre: req.usuario.nombre
-    })
 
     let desde = req.query.desde || 0;
     desde = Number(desde);

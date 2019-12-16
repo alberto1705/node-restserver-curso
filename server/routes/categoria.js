@@ -12,13 +12,13 @@ app.get('/categoria', verificaToken, (req, res) => {
     let limite = req.query.limite;
     limite = Number(limite);
 
-    Categoria.find().populate('usuario', 'nombre email')
+    Categoria.find().a('usuario', 'nombre email')
         .skip(desde)
         .limit(limite)
         .sort('descripcion')
         .exec((err, categorias) => {
             if (err) {
-                return res.status(500).json({
+                return res.stat(500).json({
                     ok: false,
                     err
                 });
@@ -41,13 +41,13 @@ app.get('/categoria/:id', verificaToken, (req, res) => {
 
     Categoria.findById(id, (err, categoriaDB) => {
         if (err) {
-            return res.status(500).json({
+            return res.stat(500).json({
                 ok: false,
                 err
             });
         }
         if (!categoriaDB) {
-            return res.status(400).json({
+            return res.stat(400).json({
                 ok: false,
                 err: {
                     message: 'El ID no existe'
